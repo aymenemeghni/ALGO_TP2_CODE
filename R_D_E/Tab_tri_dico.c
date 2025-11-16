@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 // 🔹 Fonction de recherche binaire
 int rechercheBinaire(int tab[], int n, int x, int *comparaisons) {  // ✅ AJOUT : paramètre comparaisons
@@ -28,6 +29,8 @@ int main() {
     int  choix;
     char nomFichier[50];
     int comparaisons = 0;  // ✅ AJOUT : compteur de comparaisons
+    clock_t debut, fin;
+    double temps_execution;
 
      // 🔹 Menu de sélection du fichier
     printf("=== Choisissez le fichier de donnees ===\n");
@@ -116,8 +119,10 @@ int main() {
     printf("\nEntrez la valeur a rechercher : ");
     scanf("%d", &x);
 
+    debut = clock();
     // 🔹 Appel de la fonction de recherche binaire
     pos = rechercheBinaire(tab, n, x, &comparaisons);  // ✅ AJOUT : passage du compteur
+    fin = clock();
 
     // 🔹 Affichage du résultat
     if (pos != -1)
@@ -125,7 +130,9 @@ int main() {
     else
         printf(" La valeur %d n'est pas présente dans le tableau.\n", x);
 
+    temps_execution = ((double)(fin - debut)) / CLOCKS_PER_SEC;
     printf(" Nombre de comparaisons : %d\n", comparaisons);  // ✅ AJOUT : affichage
+    printf(" Temps d'execution : %.6f secondes\n", temps_execution);
 
     free(tab);  //  LIBÉRATION DE LA MÉMOIRE
 

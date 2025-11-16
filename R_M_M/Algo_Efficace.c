@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 // 🔹 Fonction pour trouver le max et le min selon la méthode "par paire"
 void MaxEtMinB(int tab[], int n, int *max, int *min, int *comparaisons_max, int *comparaisons_min) {  // ✅ AJOUT : 2 paramètres
@@ -57,6 +58,8 @@ int main() {
     char nomFichier[50];
     int comparaisons_max = 0;  // ✅ AJOUT : compteur pour max
     int comparaisons_min = 0;  // ✅ AJOUT : compteur pour min
+    clock_t debut, fin;
+    double temps_execution;
     
  // 🔹 Menu de sélection du fichier
     printf("=== Choisissez le fichier de donnees ===\n");
@@ -142,9 +145,11 @@ int main() {
     // }
     // printf("\n");
 
+    debut = clock();
     // 🔹 Calcul du max et min
     int max, min;
     MaxEtMinB(tab, n, &max, &min, &comparaisons_max, &comparaisons_min);  // ✅ AJOUT : passage des 2 compteurs
+    fin = clock();
 
     // // 🔹 Affichage des résultats
     // printf("\nTableau après réorganisation (pair=grands / impair=petits) :\n");
@@ -152,10 +157,12 @@ int main() {
     //     printf("%d ", tab[i]);
     // printf("\n");
 
+    temps_execution = ((double)(fin - debut)) / CLOCKS_PER_SEC;
     printf(" Maximum = %d\n", max);
     printf(" Minimum = %d\n", min);
     printf(" Nombre de comparaisons pour trouver le MAX : %d\n", comparaisons_max);  // ✅ AJOUT
     printf(" Nombre de comparaisons pour trouver le MIN : %d\n", comparaisons_min);  // ✅ AJOUT
+    printf(" Temps d'execution : %.6f secondes\n", temps_execution);
 
     free(tab);  //  LIBÉRATION DE LA MÉMOIRE
 

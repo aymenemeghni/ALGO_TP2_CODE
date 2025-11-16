@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 // 🔹 Fonction de recherche du maximum et du minimum (approche naïve)
 void MaxEtMinA(int tab[], int n, int *max, int *min, int *nbrComp_max, int *nbrComp_min) {  // ✅ MODIFIÉ : 2 paramètres
@@ -22,6 +23,8 @@ int main() {
     int n;
     int  choix;
     char nomFichier[50];
+    clock_t debut, fin;
+    double temps_execution;
 
  // 🔹 Menu de sélection du fichier
     printf("=== Choisissez le fichier de donnees ===\n");
@@ -105,15 +108,19 @@ int main() {
     // }
     // printf("\n");
 
+    debut = clock();
     // 🔹 Recherche du max et du min
     int max, min, nbrComp_max = 0, nbrComp_min = 0;  // ✅ MODIFIÉ : 2 compteurs séparés
     MaxEtMinA(tab, n, &max, &min, &nbrComp_max, &nbrComp_min);  // ✅ MODIFIÉ : passage des 2 compteurs
+    fin = clock();
 
     // 🔹 Affichage des résultats
+    temps_execution = ((double)(fin - debut)) / CLOCKS_PER_SEC;
     printf("\n Le maximum est : %d\n", max);
     printf(" Le minimum est : %d\n", min);
     printf(" Nombre de comparaisons pour trouver le MAX : %d\n", nbrComp_max);  // ✅ AJOUT
     printf(" Nombre de comparaisons pour trouver le MIN : %d\n", nbrComp_min);  // ✅ AJOUT
+    printf(" Temps d'execution : %.6f secondes\n", temps_execution);
 
     free(tab);  //  LIBÉRATION DE LA MÉMOIRE
 

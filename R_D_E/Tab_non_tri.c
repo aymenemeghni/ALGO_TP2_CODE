@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main() {
     FILE *fichier;
@@ -7,6 +8,8 @@ int main() {
     int  choix;
     char nomFichier[50];
     int comparaisons = 0;  // ✅ AJOUT : compteur de comparaisons
+    clock_t debut, fin;
+    double temps_execution;
 
     // 🔹 Menu de sélection du fichier
     printf("=== Choisissez le fichier de donnees ===\n");
@@ -94,6 +97,7 @@ int main() {
     printf("\nEntrez la valeur a chercher : ");
     scanf("%d", &X);
 
+    debut = clock();
     // 🔹 Recherche linéaire (tableau non trié)
     for (i = 0; i < N; i++) {
         comparaisons++;  // ✅ AJOUT : incrémenter à chaque comparaison
@@ -103,12 +107,15 @@ int main() {
             break;
         }
     }
+    fin = clock();
 
     // 🔹 Si la valeur n'est pas trouvée
     if (!trouve)
         printf(" La valeur %d n'existe pas dans le tableau.\n", X);
 
+    temps_execution = ((double)(fin - debut)) / CLOCKS_PER_SEC;
     printf(" Nombre de comparaisons : %d\n", comparaisons);  // ✅ AJOUT : affichage
+    printf(" Temps d'execution : %.6f secondes\n", temps_execution);
 
     free(tab);  //  LIBÉRATION DE LA MÉMOIRE
 
