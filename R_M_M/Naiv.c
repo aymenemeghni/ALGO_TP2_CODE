@@ -3,16 +3,16 @@
 #include <time.h>
 
 // 🔹 Fonction de recherche du maximum et du minimum (approche naïve)
-void MaxEtMinA(int tab[], int n, int *max, int *min, int *nbrComp_max, int *nbrComp_min) {  // ✅ MODIFIÉ : 2 paramètres
+void MaxEtMinA(int tab[], int n, int *max, int *min, int *nbrComp_max, int *nbrComp_min) {  
     *max = tab[0];
     *min = tab[0];
 
     for (int i = 1; i < n; i++) {
-        (*nbrComp_max)++;  // ✅ MODIFIÉ : compteur pour max
+        (*nbrComp_max)++; 
         if (tab[i] > *max)
             *max = tab[i];
         
-        (*nbrComp_min)++;  // ✅ MODIFIÉ : compteur pour min
+        (*nbrComp_min)++; 
         if (tab[i] < *min)
             *min = tab[i];
     }
@@ -126,16 +126,16 @@ int main() {
 
     debut = clock();
     // 🔹 Recherche du max et du min
-    int max, min, nbrComp_max = 0, nbrComp_min = 0;  // ✅ MODIFIÉ : 2 compteurs séparés
-    MaxEtMinA(tab, n, &max, &min, &nbrComp_max, &nbrComp_min);  // ✅ MODIFIÉ : passage des 2 compteurs
+    int max, min, nbrComp_max = 0, nbrComp_min = 0;  
+    MaxEtMinA(tab, n, &max, &min, &nbrComp_max, &nbrComp_min); 
     fin = clock();
 
     // 🔹 Affichage des résultats
     temps_execution = ((double)(fin - debut)) / CLOCKS_PER_SEC;
     printf("\n Le maximum est : %d\n", max);
     printf(" Le minimum est : %d\n", min);
-    printf(" Nombre de comparaisons pour trouver le MAX : %d\n", nbrComp_max);  // ✅ AJOUT
-    printf(" Nombre de comparaisons pour trouver le MIN : %d\n", nbrComp_min);  // ✅ AJOUT
+    printf(" Nombre de comparaisons pour trouver le MAX : %d\n", nbrComp_max);  
+    printf(" Nombre de comparaisons pour trouver le MIN : %d\n", nbrComp_min);  
     printf(" Temps d'execution : %.6f secondes\n", temps_execution);
 
     free(tab);  //  LIBÉRATION DE LA MÉMOIRE

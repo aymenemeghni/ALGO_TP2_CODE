@@ -3,7 +3,7 @@
 #include <time.h>
 
 // 🔹 Fonction de recherche binaire
-int rechercheBinaire(int tab[], int n, int x, int *comparaisons) {  // ✅ AJOUT : paramètre comparaisons
+int rechercheBinaire(int tab[], int n, int x, int *comparaisons) {  
     int debut = 0;
     int fin = n - 1;
     int milieu;
@@ -11,7 +11,7 @@ int rechercheBinaire(int tab[], int n, int x, int *comparaisons) {  // ✅ AJOUT
     while (debut <= fin) {
         milieu = (debut + fin) / 2;
 
-        (*comparaisons)++;  // ✅ AJOUT : incrémenter à chaque comparaison
+        (*comparaisons)++;  // incrémenter à chaque comparaison
         if (tab[milieu] == x)
             return milieu; //  Valeur trouvée
         else if (tab[milieu] < x)
@@ -28,7 +28,7 @@ int main() {
     int n, x, i, pos;
     int  choix;
     char nomFichier[50];
-    int comparaisons = 0;  // ✅ AJOUT : compteur de comparaisons
+    int comparaisons = 0;  // compteur de comparaisons
     clock_t debut, fin;
     double temps_execution;
 
@@ -137,7 +137,7 @@ int main() {
 
     debut = clock();
     // 🔹 Appel de la fonction de recherche binaire
-    pos = rechercheBinaire(tab, n, x, &comparaisons);  // ✅ AJOUT : passage du compteur
+    pos = rechercheBinaire(tab, n, x, &comparaisons);  // passage du compteur
     fin = clock();
 
     // 🔹 Affichage du résultat
@@ -147,7 +147,7 @@ int main() {
         printf(" La valeur %d n'est pas présente dans le tableau.\n", x);
 
     temps_execution = ((double)(fin - debut)) / CLOCKS_PER_SEC;
-    printf(" Nombre de comparaisons : %d\n", comparaisons);  // ✅ AJOUT : affichage
+    printf(" Nombre de comparaisons : %d\n", comparaisons);  // 
     printf(" Temps d'execution : %.6f secondes\n", temps_execution);
 
     free(tab);  //  LIBÉRATION DE LA MÉMOIRE

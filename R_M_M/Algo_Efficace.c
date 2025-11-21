@@ -164,7 +164,7 @@ int main() {
     debut = clock();
     // 🔹 Calcul du max et min
     int max, min;
-    MaxEtMinB(tab, n, &max, &min, &comparaisons_max, &comparaisons_min);  // ✅ AJOUT : passage des 2 compteurs
+    MaxEtMinB(tab, n, &max, &min, &comparaisons_max, &comparaisons_min);  
     fin = clock();
 
     // // 🔹 Affichage des résultats
@@ -176,8 +176,8 @@ int main() {
     temps_execution = ((double)(fin - debut)) / CLOCKS_PER_SEC;
     printf(" Maximum = %d\n", max);
     printf(" Minimum = %d\n", min);
-    printf(" Nombre de comparaisons pour trouver le MAX : %d\n", comparaisons_max);  // ✅ AJOUT
-    printf(" Nombre de comparaisons pour trouver le MIN : %d\n", comparaisons_min);  // ✅ AJOUT
+    printf(" Nombre de comparaisons pour trouver le MAX : %d\n", comparaisons_max); 
+    printf(" Nombre de comparaisons pour trouver le MIN : %d\n", comparaisons_min);  
     printf(" Temps d'execution : %.6f secondes\n", temps_execution);
 
     free(tab);  //  LIBÉRATION DE LA MÉMOIRE

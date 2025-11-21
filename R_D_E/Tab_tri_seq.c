@@ -3,9 +3,9 @@
 #include <time.h>
 
 // 🔹 Fonction de recherche séquentielle optimisée (pour tableau trié)
-int rechercheSequentielle(int tab[], int n, int x, int *comparaisons) {  // ✅ AJOUT : paramètre comparaisons
+int rechercheSequentielle(int tab[], int n, int x, int *comparaisons) {  
     for (int i = 0; i < n; i++) {
-        (*comparaisons)++;  // ✅ AJOUT : incrémenter à chaque comparaison
+        (*comparaisons)++;  //  incrémenter à chaque comparaison
         if (tab[i] == x)
             return i; // Valeur trouvée
         else if (tab[i] > x)
@@ -19,7 +19,7 @@ int main() {
     int  x, i, pos;
     int n, choix;
     char nomFichier[50];
-    int comparaisons = 0;  // ✅ AJOUT : compteur de comparaisons
+    int comparaisons = 0;  // 
     clock_t debut, fin;
     double temps_execution;
 
@@ -129,7 +129,7 @@ int main() {
 
     debut = clock();
     // 🔹 Appel de la fonction de recherche séquentielle
-    pos = rechercheSequentielle(tab, n, x, &comparaisons);  // ✅ AJOUT : passage du compteur
+    pos = rechercheSequentielle(tab, n, x, &comparaisons); 
     fin = clock();
 
     // 🔹 Afficher le résultat
@@ -139,7 +139,7 @@ int main() {
         printf(" La valeur %d n'est pas présente dans le tableau.\n", x);
 
     temps_execution = ((double)(fin - debut)) / CLOCKS_PER_SEC;
-    printf(" Nombre de comparaisons : %d\n", comparaisons);  // ✅ AJOUT : affichage
+    printf(" Nombre de comparaisons : %d\n", comparaisons);  
     printf(" Temps d'execution : %.6f secondes\n", temps_execution);
 
     free(tab);  //  LIBÉRATION DE LA MÉMOIRE

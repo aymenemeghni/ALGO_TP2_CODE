@@ -7,7 +7,7 @@ int main() {
     int N, X, i, trouve = 0;
     int  choix;
     char nomFichier[50];
-    int comparaisons = 0;  // ✅ AJOUT : compteur de comparaisons
+    int comparaisons = 0;  //  compteur de comparaisons
     clock_t debut, fin;
     double temps_execution;
 
@@ -116,7 +116,7 @@ int main() {
     debut = clock();
     // 🔹 Recherche linéaire (tableau non trié)
     for (i = 0; i < N; i++) {
-        comparaisons++;  // ✅ AJOUT : incrémenter à chaque comparaison
+        comparaisons++;  //  incrémenter à chaque comparaison
         if (tab[i] == X) {
             printf(" La valeur %d se trouve a la position %d (indice %d)\n", X, i + 1, i);
             trouve = 1;
@@ -130,7 +130,7 @@ int main() {
         printf(" La valeur %d n'existe pas dans le tableau.\n", X);
 
     temps_execution = ((double)(fin - debut)) / CLOCKS_PER_SEC;
-    printf(" Nombre de comparaisons : %d\n", comparaisons);  // ✅ AJOUT : affichage
+    printf(" Nombre de comparaisons : %d\n", comparaisons); 
     printf(" Temps d'execution : %.6f secondes\n", temps_execution);
 
     free(tab);  //  LIBÉRATION DE LA MÉMOIRE
