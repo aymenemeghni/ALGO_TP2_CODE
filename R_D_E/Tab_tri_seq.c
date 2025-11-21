@@ -36,6 +36,10 @@ int main() {
     printf(" -8- 1400000_T.txt\n");
     printf(" -9- 1600000_T.txt\n");
     printf(" -10- 1800000_T.txt\n");
+    printf(" -11- 2000000_T.txt\n");
+    printf(" -12- 4000000_T.txt\n");
+    printf(" -13- 6000000_T.txt\n");
+    printf(" -14- 8000000_T.txt\n");
     
     printf("---------------------------------------\n");
     printf("Votre choix : ");
@@ -72,6 +76,18 @@ int main() {
             break;
         case 10:
             sprintf(nomFichier, "../dataset/1800000-Trie.txt");
+            break;
+        case 11:
+            sprintf(nomFichier, "../dataset/2000000-Trie.txt");
+            break;
+        case 12:
+            sprintf(nomFichier, "../dataset/4000000-Trie.txt");
+            break;
+        case 13:
+            sprintf(nomFichier, "../dataset/6000000-Trie.txt");
+            break;
+        case 14:
+            sprintf(nomFichier, "../dataset/8000000-Trie.txt");
             break;
 
         default:

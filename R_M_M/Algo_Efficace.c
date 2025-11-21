@@ -41,11 +41,11 @@ void MaxEtMinB(int tab[], int n, int *max, int *min, int *comparaisons_max, int 
     if (n % 2 != 0) {
         int dernier = tab[n - 1];
         
-        (*comparaisons_max)++;  // ✅ AJOUT : compter pour max
+        (*comparaisons_max)++;  // AJOUT : compter pour max
         if (dernier > *max)
             *max = dernier;
         
-        (*comparaisons_min)++;  // ✅ AJOUT : compter pour min
+        (*comparaisons_min)++;  // AJOUT : compter pour min
         if (dernier < *min)
             *min = dernier;
     }
@@ -56,8 +56,8 @@ int main() {
     int n, i;
     int  choix;
     char nomFichier[50];
-    int comparaisons_max = 0;  // ✅ AJOUT : compteur pour max
-    int comparaisons_min = 0;  // ✅ AJOUT : compteur pour min
+    int comparaisons_max = 0;  //  compteur pour max
+    int comparaisons_min = 0;  //  compteur pour min
     clock_t debut, fin;
     double temps_execution;
     
@@ -73,6 +73,10 @@ int main() {
     printf(" -8- 1400000_NT.txt\n");
     printf(" -9- 1600000_NT.txt\n");
     printf(" -10- 1800000_NT.txt\n");
+    printf(" -11- 2000000_NT.txt\n");
+    printf(" -12- 4000000_NT.txt\n");
+    printf(" -13- 6000000_NT.txt\n");
+    printf(" -14- 8000000_NT.txt\n");
     
     printf("---------------------------------------\n");
     printf("Votre choix : ");
@@ -110,9 +114,21 @@ int main() {
         case 10:
             sprintf(nomFichier, "../dataset/1800000-nonTrie.txt");
             break;
+        case 11:
+            sprintf(nomFichier, "../dataset/2000000-nonTrie.txt");
+            break;
+        case 12:
+            sprintf(nomFichier, "../dataset/4000000-nonTrie.txt");
+            break;
+        case 13:
+            sprintf(nomFichier, "../dataset/6000000-nonTrie.txt");
+            break;
+        case 14:
+            sprintf(nomFichier, "../dataset/8000000-nonTrie.txt");
+            break;
 
         default:
-            printf("❌ Choix invalide.\n");
+            printf(" Choix invalide.\n");
             return 1;
     }
 
